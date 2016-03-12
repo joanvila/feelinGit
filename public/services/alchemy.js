@@ -19,7 +19,6 @@ function alchemyService($http, $window,  $q) {
         getSentiment: function(commitMessage) {
             var q = $q.defer();
             var reqURL = generateAnalyzerURL(commitMessage);
-            console.log(reqURL);
             $http.get(reqURL).then(function(data) {
                 q.resolve(data);
             }, function(err) {
