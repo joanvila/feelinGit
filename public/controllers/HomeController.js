@@ -12,7 +12,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
         fear: 0,
         joy: 0,
         sadness: 0
-    }
+    };
 
     $scope.sentiments = {
         anger: 0,
@@ -20,7 +20,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
         fear: 0,
         joy: 0,
         sadness: 0
-    }
+    };
 
     $scope.commits_per_sentiment = {
       anger: [],
@@ -28,7 +28,9 @@ function HomeController($scope, $state, githubService, alchemyService) {
       fear: [],
       joy: [],
       sadness: []
-    }
+  };
+
+    $scope.languages = [];
 
     $scope.analyzeLink = function() {
         $scope.sentiment_counter = {
@@ -37,21 +39,23 @@ function HomeController($scope, $state, githubService, alchemyService) {
             fear: 0,
             joy: 0,
             sadness: 0
-        }
+        };
         $scope.sentiments = {
             anger: 0,
             disgust: 0,
             fear: 0,
             joy: 0,
             sadness: 0
-        }
+        };
         $scope.commits_per_sentiment = {
-          anger: [],
-          disgust: [],
-          fear: [],
-          joy: [],
-          sadness: []
-        }
+            anger: [],
+            disgust: [],
+            fear: [],
+            joy: [],
+            sadness: []
+        };
+        $scope.languages = [];
+        
         var link = $scope.inputData.url;
         var elem = link.split("/");
         var owner = elem[elem.length-2];
@@ -65,7 +69,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
                 alchemyService.getSentiment(commits[i].commit.message, commits[i].commit.author.name).then(function(sentiment) {
                     var status = sentiment.data.status;
                     var author = sentiment.data.author;
-                    
+
                     if (status != "ERROR") {
                       var emotions = sentiment.data.docEmotions;
                       $scope.sentiment_counter['anger'] += parseFloat(emotions['anger'])*100;
@@ -91,6 +95,23 @@ function HomeController($scope, $state, githubService, alchemyService) {
                     }
 
                 });
+            }
+        });
+
+        githubService.getLanguages(owner, repo).then(function(languages) {
+            $scope.valid_commits = true;
+            var totalLines = 0;
+            for (key in languages.data){
+                var aux = {
+                    language: key,
+                    lines: languages.data[key]
+                };
+                $scope.languages.push(aux);
+                totalLines += languages.data[key];
+            }
+
+            for (var i = 0; i < $scope.languages.length; ++i) {
+                $scope.languages[i].percent = ($scope.languages[i].lines/totalLines)*100;
             }
         });
     }

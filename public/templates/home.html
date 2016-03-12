@@ -64,25 +64,50 @@
         </p>
     </div>
 
-    <div class="row rowRelevantCommits" ng-show="valid_commits">
-        <h2 class="title">Relevant commits</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row rowRelevantCommits" ng-show="valid_commits">
+                <h2 class="title">Relevant commits</h2>
 
-        <div class="row relevantCommits">
-            <p ng-repeat="commit in commits_per_sentiment.anger">
-                <strong class="commitLabel">Angry</strong> - {{commit.user}} - {{commit.commit}}
-            </p>
-            <p ng-repeat="commit in commits_per_sentiment.disgust">
-                <strong class="commitLabel">Disgusting</strong> - {{commit.user}} - {{commit.commit}}
-            </p>
-            <p ng-repeat="commit in commits_per_sentiment.fear">
-                <strong class="commitLabel">Fear</strong> - {{commit.user}} - {{commit.commit}}
-            </p>
-            <p ng-repeat="commit in commits_per_sentiment.joy">
-                <strong class="commitLabel">Joyful</strong> - {{commit.user}} - {{commit.commit}}
-            </p>
-            <p ng-repeat="commit in commits_per_sentiment.sadness">
-                <strong class="commitLabel">Sad</strong> - {{commit.user}} - {{commit.commit}}
-            </p>
+                <div class="row relevantCommits">
+                    <p ng-repeat="commit in commits_per_sentiment.anger">
+                        <strong class="commitLabel">Angry</strong> - {{commit.user}} - {{commit.commit}}
+                    </p>
+                    <p ng-repeat="commit in commits_per_sentiment.disgust">
+                        <strong class="commitLabel">Disgusting</strong> - {{commit.user}} - {{commit.commit}}
+                    </p>
+                    <p ng-repeat="commit in commits_per_sentiment.fear">
+                        <strong class="commitLabel">Fear</strong> - {{commit.user}} - {{commit.commit}}
+                    </p>
+                    <p ng-repeat="commit in commits_per_sentiment.joy">
+                        <strong class="commitLabel">Joyful</strong> - {{commit.user}} - {{commit.commit}}
+                    </p>
+                    <p ng-repeat="commit in commits_per_sentiment.sadness">
+                        <strong class="commitLabel">Sad</strong> - {{commit.user}} - {{commit.commit}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row rowRelevantCommits" ng-show="valid_commits">
+                <h2 class="title">Repo languages</h2>
+
+                <div class="row relevantCommits">
+                    <div class="col-xs-12">
+                        <div class="row languageStatistic" ng-repeat="language in languages">
+                            <div class="col-xs-2">
+                                {{language.language}}
+                            </div>
+                            <div class="col-xs-10">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{language.percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{language.percent}}%">
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

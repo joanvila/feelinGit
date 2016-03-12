@@ -1,10 +1,9 @@
 angular.module('feelinGit').factory('alchemyService', alchemyService);
 
 function generateAnalyzerURL(message) {
-  //http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?apikey=12d920bcbae54921e96e85c9b8011ab658dc8b07&text=asfhagf&outputMode=json
   var BASE_URL = 'http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?';
   var APIKEY_TAG = 'apikey=';
-  var API_KEY = 'd4646bea2eb5c3ea27365e97c527f73248224c1c';
+  var API_KEY = '08746195253a1be423c182866924943e5259fc63';
   var TEXT_TAG = 'text=';
   var AMP = "&";
   var OUTPUT_TAG = 'outputMode=';
