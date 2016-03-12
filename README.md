@@ -1,1 +1,1 @@
-# feelingGit
+# feelinGit
