@@ -62,8 +62,10 @@ function HomeController($scope, $state, githubService, alchemyService) {
         githubService.getCommits(owner, repo).then(function(commits) {
             commits = commits.data;
             for (var i = 0; i < commits.length; ++i) {
-                alchemyService.getSentiment(commits[i].commit.message).then(function(sentiment) {
+                alchemyService.getSentiment(commits[i].commit.message, commits[i].commit.author.name).then(function(sentiment) {
                     var status = sentiment.data.status;
+                    var author = sentiment.data.author;
+                    
                     if (status != "ERROR") {
                       var emotions = sentiment.data.docEmotions;
                       $scope.sentiment_counter['anger'] += parseFloat(emotions['anger'])*100;
@@ -73,11 +75,13 @@ function HomeController($scope, $state, githubService, alchemyService) {
                       $scope.sentiment_counter['disgust'] += parseFloat(emotions['disgust'])*100;
                       $scope.valid_commits += 1;
 
-                      if (parseFloat(emotions['anger']) >= 0.6) $scope.commits_per_sentiment['anger'].push(sentiment.data.text);
-                      if (parseFloat(emotions['joy']) >= 0.6) $scope.commits_per_sentiment['joy'].push(sentiment.data.text);
-                      if (parseFloat(emotions['fear']) >= 0.6) $scope.commits_per_sentiment['fear'].push(sentiment.data.text);
-                      if (parseFloat(emotions['sadness']) >= 0.6) $scope.commits_per_sentiment['sadness'].push(sentiment.data.text);
-                      if (parseFloat(emotions['disgust']) >= 0.6) $scope.commits_per_sentiment['disgust'].push(sentiment.data.text);
+                      if (parseFloat(emotions['anger']) >= 0.6) $scope.commits_per_sentiment['anger'].push({user: author, commit: sentiment.data.text});
+                      if (parseFloat(emotions['joy']) >= 0.6) $scope.commits_per_sentiment['joy'].push({user: author, commit: sentiment.data.text});
+                      if (parseFloat(emotions['fear']) >= 0.6) $scope.commits_per_sentiment['fear'].push({user: author, commit: sentiment.data.text});
+                      if (parseFloat(emotions['sadness']) >= 0.6) $scope.commits_per_sentiment['sadness'].push({user: author, commit: sentiment.data.text});
+                      if (parseFloat(emotions['disgust']) >= 0.6) $scope.commits_per_sentiment['disgust'].push({user: author, commit: sentiment.data.text});
+
+                      //console.log($scope.commits_per_sentiment);
 
                       $scope.sentiments.anger = $scope.sentiment_counter['anger'] / $scope.valid_commits;
                       $scope.sentiments.disgust = $scope.sentiment_counter['disgust'] / $scope.valid_commits;

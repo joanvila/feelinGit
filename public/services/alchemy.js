@@ -19,10 +19,11 @@ function generateAnalyzerURL(message) {
 function alchemyService($http, $window,  $q) {
 
     return {
-        getSentiment: function(commitMessage) {
+        getSentiment: function(commitMessage, author) {
             var q = $q.defer();
             var reqURL = generateAnalyzerURL(commitMessage);
             $http.get(reqURL).then(function(data) {
+                data.data.author = author;
                 q.resolve(data);
             }, function(err) {
                 q.reject(err);

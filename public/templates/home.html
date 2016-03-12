@@ -69,19 +69,19 @@
 
         <div class="row relevantCommits">
             <p ng-repeat="commit in commits_per_sentiment.anger">
-                <strong class="commitLabel">Angry</strong> - {{commit}}
+                <strong class="commitLabel">Angry</strong> - {{commit.user}} - {{commit.commit}}
             </p>
             <p ng-repeat="commit in commits_per_sentiment.disgust">
-                <strong class="commitLabel">Disgusting</strong> - {{commit}}
+                <strong class="commitLabel">Disgusting</strong> - {{commit.user}} - {{commit.commit}}
             </p>
             <p ng-repeat="commit in commits_per_sentiment.fear">
-                <strong class="commitLabel">Fear</strong> - {{commit}}
+                <strong class="commitLabel">Fear</strong> - {{commit.user}} - {{commit.commit}}
             </p>
             <p ng-repeat="commit in commits_per_sentiment.joy">
-                <strong class="commitLabel">Joyful</strong> - {{commit}}
+                <strong class="commitLabel">Joyful</strong> - {{commit.user}} - {{commit.commit}}
             </p>
             <p ng-repeat="commit in commits_per_sentiment.sadness">
-                <strong class="commitLabel">Sad</strong> - {{commit}}
+                <strong class="commitLabel">Sad</strong> - {{commit.user}} - {{commit.commit}}
             </p>
         </div>
     </div>
