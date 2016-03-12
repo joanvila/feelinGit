@@ -45,6 +45,13 @@ function HomeController($scope, $state, githubService, alchemyService) {
             joy: 0,
             sadness: 0
         }
+        $scope.commits_per_sentiment = {
+          anger: [],
+          disgust: [],
+          fear: [],
+          joy: [],
+          sadness: []
+        }
         var link = $scope.inputData.url;
         var elem = link.split("/");
         var owner = elem[elem.length-2];
