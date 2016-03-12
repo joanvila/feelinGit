@@ -20,6 +20,14 @@ function HomeController($scope, $state, githubService, alchemyService) {
         sadness: 0
     }
 
+    $scope.commits_per_sentiment = {
+      anger: [],
+      disgust: [],
+      fear: [],
+      joy: [],
+      sadness: []
+    }
+
     $scope.analyzeLink = function() {
         $scope.sentiment_counter = {
             anger: 0,
@@ -55,6 +63,12 @@ function HomeController($scope, $state, githubService, alchemyService) {
                       $scope.sentiment_counter['sadness'] += parseFloat(emotions['sadness'])*100;
                       $scope.sentiment_counter['disgust'] += parseFloat(emotions['disgust'])*100;
                       $scope.valid_commits += 1;
+
+                      if (parseFloat(emotions['anger']) >= 0.5) $scope.commits_per_sentiment['anger'].push(sentiment.data.text);
+                      if (parseFloat(emotions['joy']) >= 0.5) $scope.commits_per_sentiment['joy'].push(sentiment.data.text);
+                      if (parseFloat(emotions['fear']) >= 0.5) $scope.commits_per_sentiment['fear'].push(sentiment.data.text);
+                      if (parseFloat(emotions['sadness']) >= 0.5) $scope.commits_per_sentiment['sadness'].push(sentiment.data.text);
+                      if (parseFloat(emotions['disgust']) >= 0.5) $scope.commits_per_sentiment['disgust'].push(sentiment.data.text);
 
                       $scope.sentiments.anger = $scope.sentiment_counter['anger'] / $scope.valid_commits;
                       $scope.sentiments.disgust = $scope.sentiment_counter['disgust'] / $scope.valid_commits;

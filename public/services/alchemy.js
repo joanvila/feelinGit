@@ -10,8 +10,11 @@ function generateAnalyzerURL(message) {
   var OUTPUT_TAG = 'outputMode=';
   var OUTPUT = 'json';
   var SPACE = '%20';
+  var SOURCE_TAG = 'showSourceText=';
+  var SOURCE = 1;
+
   message = message.replace(/ /g, SPACE);
-  return BASE_URL + APIKEY_TAG + API_KEY + AMP + OUTPUT_TAG + OUTPUT + AMP + TEXT_TAG + message;
+  return BASE_URL + APIKEY_TAG + API_KEY + AMP + OUTPUT_TAG + OUTPUT + AMP + TEXT_TAG + message + AMP + SOURCE_TAG + SOURCE;
 }
 function alchemyService($http, $window,  $q) {
 
