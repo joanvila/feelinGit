@@ -21,6 +21,20 @@ function HomeController($scope, $state, githubService, alchemyService) {
     }
 
     $scope.analyzeLink = function() {
+        $scope.sentiment_counter = {
+            anger: 0,
+            disgust: 0,
+            fear: 0,
+            joy: 0,
+            sadness: 0
+        }
+        $scope.sentiments = {
+            anger: 0,
+            disgust: 0,
+            fear: 0,
+            joy: 0,
+            sadness: 0
+        }
         var link = $scope.inputData.url;
         var elem = link.split("/");
         var owner = elem[elem.length-2];
@@ -32,7 +46,6 @@ function HomeController($scope, $state, githubService, alchemyService) {
             commits = commits.data;
             for (var i = 0; i < commits.length; ++i) {
                 alchemyService.getSentiment(commits[i].commit.message).then(function(sentiment) {
-                    console.log(sentiment);
                     var status = sentiment.data.status;
                     if (status != "ERROR") {
                       var emotions = sentiment.data.docEmotions;
@@ -44,7 +57,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
                       $scope.valid_commits += 1;
 
                       $scope.sentiments.anger = $scope.sentiment_counter['anger'] / $scope.valid_commits;
-                      $scope.sentiments.disgust = $scope.sentiment_counter['joy'] / $scope.valid_commits;
+                      $scope.sentiments.disgust = $scope.sentiment_counter['disgust'] / $scope.valid_commits;
                       $scope.sentiments.fear = $scope.sentiment_counter['fear'] / $scope.valid_commits;
                       $scope.sentiments.joy = $scope.sentiment_counter['joy'] / $scope.valid_commits;
                       $scope.sentiments.sadness = $scope.sentiment_counter['sadness'] / $scope.valid_commits;
