@@ -50,3 +50,8 @@
 .languageStatistic .progress-bar-info {
     background-color: #5bc0de;
 }
+
+.loadingOctocat {
+    width: 100px;
+    margin-top: 20px;
+}

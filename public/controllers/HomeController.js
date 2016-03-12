@@ -4,6 +4,8 @@ function HomeController($scope, $state, githubService, alchemyService) {
 
     var commits = null;
 
+    $scope.loading = false;
+
     $scope.valid_commits = 0;
 
     $scope.sentiment_counter = {
@@ -33,6 +35,8 @@ function HomeController($scope, $state, githubService, alchemyService) {
     $scope.languages = [];
 
     $scope.analyzeLink = function() {
+        $scope.loading = true;
+
         $scope.sentiment_counter = {
             anger: 0,
             disgust: 0,
@@ -55,7 +59,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
             sadness: []
         };
         $scope.languages = [];
-        
+
         var link = $scope.inputData.url;
         var elem = link.split("/");
         var owner = elem[elem.length-2];
@@ -92,6 +96,8 @@ function HomeController($scope, $state, githubService, alchemyService) {
                       $scope.sentiments.fear = $scope.sentiment_counter['fear'] / $scope.valid_commits;
                       $scope.sentiments.joy = $scope.sentiment_counter['joy'] / $scope.valid_commits;
                       $scope.sentiments.sadness = $scope.sentiment_counter['sadness'] / $scope.valid_commits;
+
+                      $scope.loading = false;
                     }
 
                 });
