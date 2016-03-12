@@ -17,6 +17,11 @@ function HomeController($scope, $state, githubService, alchemyService) {
 
     $scope.analyzeLink = function() {
         var link = $scope.inputData.url;
+        var elem = link.split("/");
+        var owner = elem[elem.length-2];
+        var repo = elem[elem.length-1];
+        githubService.getCommits(owner, repo);
+        
     }
 
 }

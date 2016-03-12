@@ -1,7 +1,10 @@
 <div home>
     <div class="row">
       <div class="col-sm-4 col-lg-offset-4">
-        <input type="url" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
+        <!--
+          maybe we need to set the type to url?
+        -->
+        <input type="text" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
           <button ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
       </div>
     </div>
