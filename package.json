@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/joanvila/feelinGit#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "http": "0.0.0"
   }
 }
