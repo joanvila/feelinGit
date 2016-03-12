@@ -14,4 +14,9 @@ function HomeController($scope, $state, githubService, alchemyService) {
     });
 
     $scope.commits = commits;
+
+    $scope.analyzeLink = function() {
+        var link = $scope.inputData.url;
+    }
+
 }

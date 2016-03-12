@@ -1,22 +1,24 @@
-<div class="row">
-  <div class="col-sm-4 col-lg-offset-4">
-    <input type="url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
-      <button type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
-  </div>
-</div>
-
-<div>
-  <div class="text-center" style="margin-top: 50px">
-    <div class="progress center-block" style="width:750px">
-      <div class="progress-bar" role="progressbar" style="width:70%; background-color:red">
-        Anger
-      </div>
-      <div class="progress-bar" role="progressbar" style="width:20%; background-color:#FFFF66; color:black">
-        Joy
-      </div>
-      <div class="progress-bar" role="progressbar" style="width:10%; background-color:blue">
-        Sadness
+<div home>
+    <div class="row">
+      <div class="col-sm-4 col-lg-offset-4">
+        <input type="url" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
+          <button ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
       </div>
     </div>
-  </div>
+
+    <div>
+      <div class="text-center" style="margin-top: 50px">
+        <div class="progress center-block" style="width:750px">
+          <div class="progress-bar" role="progressbar" style="width:70%; background-color:red">
+            Anger
+          </div>
+          <div class="progress-bar" role="progressbar" style="width:20%; background-color:#FFFF66; color:black">
+            Joy
+          </div>
+          <div class="progress-bar" role="progressbar" style="width:10%; background-color:blue">
+            Sadness
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
