@@ -25,3 +25,20 @@
 .separator {
     margin-top: 50px;
 }
+
+.rowRelevantCommits {
+    margin-top: 30px;
+}
+
+.relevantCommits {
+    padding-left: 15px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-family: Quicksand;
+    margin-bottom: 50px;
+}
+
+.commitLabel {
+    font-size: 16px;
+    font-weight: 600;
+}

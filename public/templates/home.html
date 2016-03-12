@@ -58,9 +58,31 @@
         </tbody>
     </table>
 
-    <div class="row">
+    <div class="row text-center">
         <p>
             {{valid_commits}} commits scanned
         </p>
+    </div>
+
+    <div class="row rowRelevantCommits" ng-show="valid_commits">
+        <h2 class="title">Relevant commits</h2>
+
+        <div class="row relevantCommits">
+            <p ng-repeat="commit in commits_per_sentiment.anger">
+                <strong class="commitLabel">Angry</strong> - {{commit}}
+            </p>
+            <p ng-repeat="commit in commits_per_sentiment.disgust">
+                <strong class="commitLabel">Disgusting</strong> - {{commit}}
+            </p>
+            <p ng-repeat="commit in commits_per_sentiment.fear">
+                <strong class="commitLabel">Fear</strong> - {{commit}}
+            </p>
+            <p ng-repeat="commit in commits_per_sentiment.joy">
+                <strong class="commitLabel">Joyful</strong> - {{commit}}
+            </p>
+            <p ng-repeat="commit in commits_per_sentiment.sadness">
+                <strong class="commitLabel">Sad</strong> - {{commit}}
+            </p>
+        </div>
     </div>
 </div>
