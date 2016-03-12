@@ -1,10 +1,27 @@
-.progress-bar {
-    padding: 20px 0;
+.progress {
+    margin-bottom: 0;
 }
 
-#bar {
-    width: 100%;
-    height: 40px;
-    background-color: red;
-    border-radius: 6px;
+.table tr td{
+    padding: 15px 0 !important;
+    font-family: Quicksand;
+    font-weight: 600;
+    border-top: 0 !important;
+}
+
+.progress-bar-info {
+    background-color: rgb(65, 53, 108);
+}
+
+#repoFeelings {
+    margin-top: 30px;
+}
+
+.title {
+    font-family: Quicksand;
+    font-weight: 600;
+}
+
+.separator {
+    margin-top: 50px;
 }

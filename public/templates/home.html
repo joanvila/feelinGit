@@ -1,41 +1,60 @@
 <div home>
     <div class="row">
-      <div class="col-sm-4 col-lg-offset-4">
-        <!--
-          maybe we need to set the type to url?
-        -->
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <input type="text" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
-          <button ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
+        <button ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
       </div>
     </div>
 
-    <div id="bar">
-        <div class="first col-xs-6">
-            first
-        </div>
-        <div class="second col-xs-3">
-            second
-        </div>
-        <div class="third col-xs-3">
-            third
-        </div>
-    </div>
+    <hr class="separator">
 
-    {{sentiments}}
-
-    <div class="row">
-      <div class="text-center" style="margin-top: 50px">
-        <div class="progress center-block" style="width:750px">
-          <div class="progress-bar" role="progressbar" style="width:70%; background-color:red">
-            Anger
-          </div>
-          <div class="progress-bar" role="progressbar" style="width:20%; background-color:#FFFF66; color:black">
-            Joy
-          </div>
-          <div class="progress-bar" role="progressbar" style="width:10%; background-color:blue">
-            Sadness
-          </div>
-        </div>
-      </div>
-    </div>
+    <table class="table" id="repoFeelings">
+        <tbody>
+            <tr>
+                <td width="20%">Angry</td>
+                <td width="80%">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                      </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Disgust</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{disgust}}" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                      </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Fear</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{fear}}" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                      </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Joy</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{joy}}" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                      </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Sadness</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{sadness}}" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                      </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
