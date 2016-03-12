@@ -1,23 +1,25 @@
 angular.module('feelinGit').factory('alchemyService', alchemyService);
 
 function generateAnalyzerURL(message) {
-  var BASE_URL = 'https://watson-api-explorer.mybluemix.net/tone-analyzer-beta/api/v3/tone?';
-  var VERSION_TAG = 'version=';
+  //http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?apikey=12d920bcbae54921e96e85c9b8011ab658dc8b07&text=asfhagf&outputMode=json
+  var BASE_URL = 'http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?';
+  var APIKEY_TAG = 'apikey=';
+  var API_KEY = '12d920bcbae54921e96e85c9b8011ab658dc8b07';
   var TEXT_TAG = 'text=';
   var AMP = "&";
-  var TONE_VERSION = '2016-02-11';
+  var OUTPUT_TAG = 'outputMode=';
+  var OUTPUT = 'json';
   var SPACE = '%20';
   message = message.replace(/ /g, SPACE);
-  return BASE_URL + VERSION_TAG + TONE_VERSION + AMP + TEXT_TAG + message;
+  return BASE_URL + APIKEY_TAG + API_KEY + AMP + OUTPUT_TAG + OUTPUT + AMP + TEXT_TAG + message;
 }
 function alchemyService($http, $window,  $q) {
-
-    var SERVER_URL = 'http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment';
 
     return {
         getSentiment: function(commitMessage) {
             var q = $q.defer();
             var reqURL = generateAnalyzerURL(commitMessage);
+            console.log(reqURL);
             $http.get(reqURL).then(function(data) {
                 q.resolve(data);
             }, function(err) {
