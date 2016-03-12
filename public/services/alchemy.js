@@ -3,7 +3,7 @@ angular.module('feelinGit').factory('alchemyService', alchemyService);
 function generateAnalyzerURL(message) {
   var BASE_URL = 'http://gateway-a.watsonplatform.net/calls/text/TextGetEmotion?';
   var APIKEY_TAG = 'apikey=';
-  var API_KEY = '08746195253a1be423c182866924943e5259fc63';
+  var API_KEY = 'd4f4da85c4ad1f47664d8124467f66a683e7e684';
   var TEXT_TAG = 'text=';
   var AMP = "&";
   var OUTPUT_TAG = 'outputMode=';

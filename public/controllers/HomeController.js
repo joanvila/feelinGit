@@ -6,6 +6,7 @@ function HomeController($scope, $state, githubService, alchemyService) {
 
     $scope.loading = false;
     $scope.filterDate = 0;
+    $scope.octoName = 'original.png'
 
     $scope.valid_commits = 0;
 
@@ -34,6 +35,15 @@ function HomeController($scope, $state, githubService, alchemyService) {
   };
 
     $scope.languages = [];
+
+    $scope.generalFeeling = {
+        neutral: true,
+        anger: false,
+        disgust: false,
+        fear: false,
+        joy: false,
+        sadness: false
+    };
 
     $scope.analyzeLink = function() {
         $scope.filterDate = parseInt($scope.filterDate);
@@ -85,11 +95,11 @@ function HomeController($scope, $state, githubService, alchemyService) {
 
                         if (status != "ERROR") {
                           var emotions = sentiment.data.docEmotions;
-                          $scope.sentiment_counter['anger'] += parseFloat(emotions['anger'])*100;
-                          $scope.sentiment_counter['joy'] += parseFloat(emotions['joy'])*100;
-                          $scope.sentiment_counter['fear'] += parseFloat(emotions['fear'])*100;
-                          $scope.sentiment_counter['sadness'] += parseFloat(emotions['sadness'])*100;
-                          $scope.sentiment_counter['disgust'] += parseFloat(emotions['disgust'])*100;
+                          $scope.sentiment_counter['anger'] += parseFloat(emotions['anger'])*200;
+                          $scope.sentiment_counter['joy'] += parseFloat(emotions['joy'])*200;
+                          $scope.sentiment_counter['fear'] += parseFloat(emotions['fear'])*200;
+                          $scope.sentiment_counter['sadness'] += parseFloat(emotions['sadness'])*200;
+                          $scope.sentiment_counter['disgust'] += parseFloat(emotions['disgust'])*200;
                           $scope.valid_commits += 1;
 
                           if (parseFloat(emotions['anger']) >= 0.6) $scope.commits_per_sentiment['anger'].push({user: author, commit: sentiment.data.text});
@@ -98,13 +108,44 @@ function HomeController($scope, $state, githubService, alchemyService) {
                           if (parseFloat(emotions['sadness']) >= 0.6) $scope.commits_per_sentiment['sadness'].push({user: author, commit: sentiment.data.text});
                           if (parseFloat(emotions['disgust']) >= 0.6) $scope.commits_per_sentiment['disgust'].push({user: author, commit: sentiment.data.text});
 
-                          //console.log($scope.commits_per_sentiment);
-
                           $scope.sentiments.anger = $scope.sentiment_counter['anger'] / $scope.valid_commits;
                           $scope.sentiments.disgust = $scope.sentiment_counter['disgust'] / $scope.valid_commits;
                           $scope.sentiments.fear = $scope.sentiment_counter['fear'] / $scope.valid_commits;
                           $scope.sentiments.joy = $scope.sentiment_counter['joy'] / $scope.valid_commits;
                           $scope.sentiments.sadness = $scope.sentiment_counter['sadness'] / $scope.valid_commits;
+
+                          var maxFeeling = 'anger';
+                          var maxNumber = $scope.sentiment_counter['anger'];
+
+                          for (var key in $scope.sentiment_counter) {
+                              if ($scope.sentiment_counter.hasOwnProperty(key)) {
+                                  if ($scope.sentiment_counter[key] > maxNumber) {
+                                      maxNumber = $scope.sentiment_counter[key];
+                                      maxFeeling = key;
+                                  }
+                              }
+                          }
+
+                          switch (maxFeeling) {
+                              case 'anger':
+                              $scope.octoName = 'luchadortocat.png';
+                              break;
+                              case 'disgust':
+                              $scope.octoName = 'steroidtocat.png';
+                              break;
+                              case 'fear':
+                              $scope.octoName = 'grim-repo.jpg';
+                              break;
+                              case 'joy':
+                              $scope.octoName = 'nyantocat.gif';
+                              break;
+                              case 'sadness':
+                              $scope.octoName = 'deckfailcat.png';
+                              break;
+                              default:
+                              break;
+                          }
+
                         }
 
                     });

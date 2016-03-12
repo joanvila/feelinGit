@@ -23,59 +23,66 @@
 
     <hr class="separator">
 
-    <table class="table" id="repoFeelings">
-        <tbody>
-            <tr>
-                <td width="20%">Anger</td>
-                <td width="80%">
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{sentiments.anger}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.anger}}%">
-                      </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Disgust</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{sentiments.disgust}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.disgust}}%">
-                      </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Fear</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{sentiments.fear}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.fear}}%">
-                      </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Joy</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{sentiments.joy}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.joy}}%">
-                      </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Sadness</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{sentiments.sadness}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.sadness}}%">
-                      </div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-9">
+            <table class="table" id="repoFeelings">
+                <tbody>
+                    <tr>
+                        <td width="20%">Anger</td>
+                        <td width="80%">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{sentiments.anger}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.anger}}%">
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Disgust</td>
+                        <td>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{sentiments.disgust}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.disgust}}%">
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fear</td>
+                        <td>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{sentiments.fear}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.fear}}%">
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Joy</td>
+                        <td>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{sentiments.joy}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.joy}}%">
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sadness</td>
+                        <td>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{sentiments.sadness}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.sadness}}%">
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <img class="kitten" ng-src="../assets/{{octoName}}" alt="octocat" />
+        </div>
+    </div>
 
     <div class="row text-center">
         <p>
-            {{valid_commits}} commits scanned
+            
         </p>
     </div>
 
