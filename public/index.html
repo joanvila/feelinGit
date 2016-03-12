@@ -1,46 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-messages.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
-  <script type="text/javascript" src="./assets/angular-toastr.tpls.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src='app.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-messages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src='app.js'></script>
+    <script src="controllers/HomeController.js"></script>
+    <script src="services/alchemy.js"></script>
+    <script src="services/github.js"></script>
 
-  <meta charset="UTF-8">
-  <title>FeelinGit</title>
+    <meta charset="UTF-8">
+    <title>FeelinGit</title>
 </head>
+
 <body ng-app="feelinGit">
-  <div class="row">
-    <div class="col-sm-4 col-lg-offset-4">
-      <input type="url" class="form-control" id="repo_url" placeholder="Repo URL" style="margin-top: 30px">
-        <button type="button" class="btn btn-primary btn-lg center-block" style="margin-top: 30px">Analyze</button>
+    <div class="container">
+        <div ui-view></div>
     </div>
-  </div>
-
-  <div>
-    <div class="text-center" style="margin-top: 50px">
-      <div class="progress center-block" style="width:750px">
-        <div class="progress-bar" role="progressbar" style="width:70%; background-color:red">
-          Anger
-        </div>
-        <div class="progress-bar" role="progressbar" style="width:20%; background-color:#FFFF66; color:black">
-          Joy
-        </div>
-        <div class="progress-bar" role="progressbar" style="width:10%; background-color:blue">
-          Sadness
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
 </body>
 </html>

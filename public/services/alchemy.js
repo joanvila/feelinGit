@@ -11,7 +11,6 @@ function alchemyService($http, $window,  $q) {
                 apikey: '770078878d0540dc544058a6d0685b6f3012aebc',
                 text: commitMessage,
                 outputMode: 'json'
-            }
             }).then(function(data) {
                 q.resolve(data);
             }, function(err) {

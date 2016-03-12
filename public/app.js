@@ -1,7 +1,7 @@
 angular.module('feelinGit',['ui.router', 'ngMessages', 'ngSanitize'])
     .config(Config);
 
-function Config($stateProvider, $urlRouterProvider, toastrConfig) {
+function Config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('feelings', {

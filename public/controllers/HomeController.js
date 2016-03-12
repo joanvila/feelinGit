@@ -8,7 +8,8 @@ function HomeController($scope, $state, githubService, alchemyService) {
         var commits = commits.data;
         for (var i = 0; i < commits.length; ++i) {
             alchemyService.getSentiment(commits[i].commit.message).then(function(sentiment) {
-            commits[i].commit.sentiment = sentiment.data;
+                commits[i].commit.sentiment = sentiment.data;
+            });
         }
     });
 
