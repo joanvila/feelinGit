@@ -21,6 +21,9 @@ app.get('/', function(req, res, next) {
   res.status(200).sendFile(path.join(__dirname+'/public/index.html'));
 });
 
+app.get('/env', function(req, res, next) {
+  res.status(200).send(process.env.ACCESS_TOKEN);
+});
 
 app.use(express.static('public'));
 
