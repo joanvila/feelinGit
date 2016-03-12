@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var path = require('path');
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 
 var app = express();
 
