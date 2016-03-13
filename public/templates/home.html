@@ -1,24 +1,24 @@
 <div home>
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <div class="row myInputGroup">
-              <div class="col-xs-9">
-                  <input type="text" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL">
-              </div>
-              <div class="col-xs-3">
-                  <select class="form-control" ng-model="filterDate">
-                      <option value="0">All time</option>
-                      <option value="1">Last 24h</option>
-                  </select>
-              </div>
-          </div>
-          <div class="row">
-              <button ng-show="!loading" ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block analyzeButton" style="margin-top: 30px">Show me your feelings, baby ;)</button>
-              <div class="text-center" ng-show="loading">
-                  <img class="loadingOctocat" src="../assets/daftpunktocat.gif" alt="loading" />
-              </div>
-          </div>
-      </div>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <div class="row myInputGroup">
+                <div class="col-xs-9">
+                    <input type="text" ng-model="inputData.url" class="form-control" id="repo_url" placeholder="Repo URL">
+                </div>
+                <div class="col-xs-3">
+                    <select class="form-control" ng-model="filterDate">
+                        <option value="0">All time</option>
+                        <option value="1">Last 24h</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <button ng-show="!loading" ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block analyzeButton" style="margin-top: 30px">Show me your feelings, baby ;)</button>
+                <div class="text-center" ng-show="loading">
+                    <img class="loadingOctocat" src="../assets/daftpunktocat.gif" alt="loading" />
+                </div>
+            </div>
+        </div>
     </div>
 
     <hr class="separator">
@@ -31,8 +31,8 @@
                         <td width="20%">Anger</td>
                         <td width="80%">
                             <div class="progress">
-                              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{sentiments.anger}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.anger}}%">
-                              </div>
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{sentiments.anger}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.anger}}%">
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -40,8 +40,8 @@
                         <td>Disgust</td>
                         <td>
                             <div class="progress">
-                              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{sentiments.disgust}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.disgust}}%">
-                              </div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{sentiments.disgust}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.disgust}}%">
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -49,8 +49,8 @@
                         <td>Fear</td>
                         <td>
                             <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{sentiments.fear}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.fear}}%">
-                              </div>
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{sentiments.fear}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.fear}}%">
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -58,8 +58,8 @@
                         <td>Joy</td>
                         <td>
                             <div class="progress">
-                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{sentiments.joy}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.joy}}%">
-                              </div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{sentiments.joy}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.joy}}%">
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -67,8 +67,8 @@
                         <td>Sadness</td>
                         <td>
                             <div class="progress">
-                              <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{sentiments.sadness}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.sadness}}%">
-                              </div>
+                                <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{sentiments.sadness}}" aria-valuemin="0" aria-valuemax="100" style="width: {{sentiments.sadness}}%">
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -81,9 +81,7 @@
     </div>
 
     <div class="row text-center">
-        <p>
-            
-        </p>
+        <p></p>
     </div>
 
     <div class="row">
@@ -122,8 +120,8 @@
                             </div>
                             <div class="col-xs-10">
                                 <div class="progress">
-                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{language.percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{language.percent}}%">
-                                  </div>
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{language.percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{language.percent}}%">
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -13,9 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-//var commitsController = require('./app/routes/commits');
-//app.use('/', commitsController);
-
 app.get('/', function(req, res, next) {
   //Path to your main file
   res.status(200).sendFile(path.join(__dirname+'/public/index.html'));
