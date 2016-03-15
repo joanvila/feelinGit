@@ -52,7 +52,7 @@
 }
 
 .loadingOctocat {
-    width: 150px;
+    width: 100px;
     margin-top: 20px;
 }
 .myInputGroup {
@@ -63,4 +63,12 @@
     width: 95%;
     border-radius: 50%;
     margin-top: 28px;
+}
+
+.formSecondLine {
+    margin-top: 30px;
+}
+
+.apiExplain {
+    margin-top: 30px;
 }

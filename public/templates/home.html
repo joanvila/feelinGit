@@ -13,9 +13,23 @@
                 </div>
             </div>
             <div class="row">
-                <button ng-show="!loading" ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-lg center-block analyzeButton" style="margin-top: 30px">Show me your feelings, baby ;)</button>
-                <div class="text-center" ng-show="loading">
-                    <img class="loadingOctocat" src="../assets/daftpunktocat.gif" alt="loading" />
+                <div class="col-xs-6">
+                    <input type="text" class="form-control formSecondLine" ng-model="inputData.apiKey" placeholder="IBM Alchemy API Key">
+                </div>
+                <div class="col-xs-6">
+                    <button ng-show="!loading" ng-click="analyzeLink(inputData.url)" type="button" class="btn btn-primary btn-block analyzeButton formSecondLine">Show me your feelings!</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <p class="text-muted apiExplain">
+                    <strong>IBM Alchemy API Key:</strong> You need to provide an Alchemy API key because there is a 1000 calls diary limit. You can get a free one <a href="http://www.alchemyapi.com/" target="_blank" title="Alchemy api">here</a>. It is very easy to get.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center" ng-show="loading">
+                        <img class="loadingOctocat" src="../assets/daftpunktocat.gif" alt="loading" />
+                    </div>
                 </div>
             </div>
         </div>
